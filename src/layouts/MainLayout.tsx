@@ -3,7 +3,7 @@ import SideNav from "@/components/SideNav";
 
 export default function MainLayout(props: PropsWithChildren) {
   return (
-    <main className="mx-10 py-10 flex gap-5 justify-between" >
+    <main className="mx-30 py-30 flex gap-5 justify-between xl:w-[1200px] xl:mx-auto" >
       <section className="sticky top-10 h-[80vh] w-2/5" >
         <SideNav />
       </section>
