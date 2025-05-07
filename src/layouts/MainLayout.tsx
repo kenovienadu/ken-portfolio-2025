@@ -1,6 +1,8 @@
 import {PropsWithChildren} from "react";
 import SideNav from "@/components/SideNav";
 import NavTabs from "@/components/NavTabs";
+import MobileOnly from "@/components/MobileOnly";
+import Footer from "@/components/Footer";
 
 export default function MainLayout(props: PropsWithChildren) {
   return (
@@ -8,10 +10,15 @@ export default function MainLayout(props: PropsWithChildren) {
       <section className="sticky top-30 h-[80vh] w-2/5 hidden md:inline-block" >
         <SideNav />
       </section>
-      <NavTabs />
+      <MobileOnly>
+        <NavTabs />
+      </MobileOnly>
       <section className="md:w-3/5" >
         {props.children}
       </section>
+      <MobileOnly>
+        <Footer />
+      </MobileOnly>
     </main>
   )
 }

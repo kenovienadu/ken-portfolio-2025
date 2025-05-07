@@ -1,20 +1,23 @@
 import {IExperience} from "@/types";
 import styled from "styled-components";
+import useIsMobile from "@/hooks/useIsMobile";
 
 type Props = {
   data: IExperience
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isMobile: boolean }>`
     &:hover {
-        background: rgba(38, 45, 103, 0.11);
+        background: ${props => props.isMobile ? 'none' : 'rgba(38, 45, 103, 0.11)'};
     }
 `
 
 export default function ExperienceCard({ data }: Props) {
+  const isMobile = useIsMobile();
+
   return (
-    <Wrapper className="p-8 rounded-md cursor-pointer grid grid-cols-6 gap-1" >
-      <div className="opacity-60 text-sm col-span-2">
+    <Wrapper isMobile={isMobile} className="pb-8 md:p-8 rounded-md cursor-pointer mb-4 md:grid grid-cols-6 gap-1" >
+      <div className="opacity-60 text-sm col-span-2 pb-1">
         {data.period}
       </div>
 

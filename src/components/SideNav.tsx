@@ -1,4 +1,6 @@
 import NavTabs from "@/components/NavTabs";
+import SocialMediaLinks from "@/components/SocialMediaLinks";
+import Footer from "@/components/Footer";
 
 export default function SideNav() {
   return (
@@ -18,27 +20,8 @@ export default function SideNav() {
 
       {/* Social Media Pages */}
       <section>
-        <div className="flex text-xl md:text-2xl gap-4 md:gap-8 opacity-65">
-          <span>
-            <i className="fa-brands fa-github"></i>
-          </span>
-          <span>
-            <i className="fa-brands fa-linkedin"></i>
-          </span>
-          <span>
-            <i className="fa-brands fa-x-twitter"></i>
-          </span>
-          <span>
-            <i className="fa-brands fa-instagram"></i>
-          </span>
-          <span>
-            <i className="fa-brands fa-medium"></i>
-          </span>
-        </div>
-
-        <div className="mt-10 opacity-25">
-          &copy; {new Date().getFullYear()}
-        </div>
+        <SocialMediaLinks />
+        <Footer />
       </section>
     </section>
   )

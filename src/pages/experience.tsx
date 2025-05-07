@@ -2,6 +2,7 @@ import {experience} from "@/data/experiences";
 import {IExperience} from "@/types";
 import ExperienceCard from "@/components/ExperienceCard";
 import type { InferGetStaticPropsType } from 'next'
+import MobileOnly from "@/components/MobileOnly";
 
 export function getStaticProps() {
   const experiences: IExperience[] = [
@@ -23,6 +24,10 @@ export default function ExperiencePage(props: InferGetStaticPropsType<typeof get
 
   return (
     <section>
+      <MobileOnly>
+        <div className="mb-8 text-2xl font-bold">Experiences</div>
+      </MobileOnly>
+
       {experienceCards}
     </section>
   )
