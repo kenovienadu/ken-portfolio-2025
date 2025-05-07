@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Link from 'next/link'
 import {useRouter} from "next/router";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const navTabs = [
   {
@@ -19,7 +20,8 @@ const navTabs = [
 
 export default function NavTabs() {
   const router = useRouter();
-  const [currentRoute, setCurrentRoute] = useState(router?.route)
+  const [currentRoute, setCurrentRoute] = useState(router?.route);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     router.events.on('routeChangeComplete', (event) => {
@@ -27,7 +29,7 @@ export default function NavTabs() {
     })
   }, [router]);
 
-  const renderNavTabs = () => {
+  const renderDesktopNavTabs = () => {
     return navTabs.map((tab, index) => {
       const defaultClassNames = 'font-extrabold text-sm';
       const isActiveRoute = tab.path.toLowerCase() === currentRoute.toLowerCase();
@@ -48,9 +50,36 @@ export default function NavTabs() {
     });
   }
 
+  const renderMobileNavTabs = () => {
+    return navTabs.map((tab, index) => {
+      const defaultClassNames = 'font-extrabold text-sm';
+      const isActiveRoute = tab.path.toLowerCase() === currentRoute.toLowerCase();
+      const className = isActiveRoute ? defaultClassNames : `${defaultClassNames} opacity-30`;
+
+      return (
+        <div key={index}>
+          <Link href={tab.path} className={className}>
+            <span className="uppercase text-xs">{tab.label}</span>
+          </Link>
+        </div>
+      )
+    });
+  }
+
+  if (isMobile) {
+    return (
+      <section className="flex justify-between align-items-center">
+        <div className="text-center text-sm font-black">Ken Ovienadu</div>
+        <div className="flex gap-2 justify-between align-items-center mb-10" >
+          {renderMobileNavTabs()}
+        </div>
+      </section>
+    )
+  }
+
   return (
     <div className="flex flex-col gap-6">
-      {renderNavTabs()}
+      {renderDesktopNavTabs()}
     </div>
   )
 }
