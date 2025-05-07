@@ -12,25 +12,34 @@ export default function SideNav() {
         <div className="mt-20">
           <div className="font-extrabold mb-5 text-sm" >ABOUT</div>
           <div className="font-extrabold mb-5 text-sm" >EXPERIENCE</div>
-          <div className="font-extrabold mb-5 text-sm" >PROJECTS</div>
+          <div className="font-extrabold mb-5 text-sm" >LECTURES</div>
         </div>
       </section>
 
       {/* Social Media Pages */}
-      <div className="flex text-2xl gap-8 opacity-65">
-        <span>
-          <i className="fa-brands fa-github"></i>
-        </span>
-        <span>
-          <i className="fa-brands fa-linkedin"></i>
-        </span>
-        <span>
-          <i className="fa-brands fa-facebook-f"></i>
-        </span>
-        <span>
-          <i className="fa-brands fa-x-twitter"></i>
-        </span>
-      </div>
+      <section>
+        <div className="flex text-xl md:text-2xl gap-4 md:gap-8 opacity-65">
+          <span>
+            <i className="fa-brands fa-github"></i>
+          </span>
+          <span>
+            <i className="fa-brands fa-linkedin"></i>
+          </span>
+          <span>
+            <i className="fa-brands fa-x-twitter"></i>
+          </span>
+          <span>
+            <i className="fa-brands fa-instagram"></i>
+          </span>
+          <span>
+            <i className="fa-brands fa-medium"></i>
+          </span>
+        </div>
+
+        <div className="mt-10 opacity-25">
+          &copy; {new Date().getFullYear()}
+        </div>
+      </section>
     </section>
   )
 }
