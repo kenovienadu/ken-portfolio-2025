@@ -1,3 +1,5 @@
+import NavTabs from "@/components/NavTabs";
+
 export default function SideNav() {
   return (
     <section className="w-[350px] flex flex-col justify-between h-[80vh]">
@@ -10,9 +12,7 @@ export default function SideNav() {
         </div>
 
         <div className="mt-20">
-          <div className="font-extrabold mb-5 text-sm" >ABOUT</div>
-          <div className="font-extrabold mb-5 text-sm" >EXPERIENCE</div>
-          <div className="font-extrabold mb-5 text-sm" >LECTURES</div>
+          <NavTabs />
         </div>
       </section>
 
