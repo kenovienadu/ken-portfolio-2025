@@ -1,8 +1,13 @@
 import {PropsWithChildren} from "react";
+import styled from "styled-components"
 import SideNav from "@/components/SideNav";
 import NavTabs from "@/components/NavTabs";
 import MobileOnly from "@/components/MobileOnly";
 import Footer from "@/components/Footer";
+
+const ContentWrapper = styled.section`
+    min-height: 80vh;
+`
 
 export default function MainLayout(props: PropsWithChildren) {
   return (
@@ -13,9 +18,9 @@ export default function MainLayout(props: PropsWithChildren) {
       <MobileOnly>
         <NavTabs />
       </MobileOnly>
-      <section className="md:w-3/5" >
+      <ContentWrapper className="md:w-3/5" >
         {props.children}
-      </section>
+      </ContentWrapper>
       <MobileOnly>
         <Footer />
       </MobileOnly>
