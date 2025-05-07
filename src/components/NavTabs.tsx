@@ -31,7 +31,7 @@ export default function NavTabs() {
 
   const renderDesktopNavTabs = () => {
     return navTabs.map((tab, index) => {
-      const defaultClassNames = 'font-extrabold text-sm';
+      const defaultClassNames = 'font-extrabold text-sm transition delay-150 duration-300 ease-in-out';
       const isActiveRoute = tab.path.toLowerCase() === currentRoute.toLowerCase();
       const className = isActiveRoute ? defaultClassNames : `${defaultClassNames} opacity-30`;
 
@@ -52,7 +52,7 @@ export default function NavTabs() {
 
   const renderMobileNavTabs = () => {
     return navTabs.map((tab, index) => {
-      const defaultClassNames = 'font-extrabold text-sm';
+      const defaultClassNames = 'font-extrabold text-sm transition delay-150 duration-300 ease-in-out';
       const isActiveRoute = tab.path.toLowerCase() === currentRoute.toLowerCase();
       const className = isActiveRoute ? defaultClassNames : `${defaultClassNames} opacity-30`;
 
