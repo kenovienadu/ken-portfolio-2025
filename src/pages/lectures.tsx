@@ -1,5 +1,6 @@
 import useIsMobile from "@/hooks/useIsMobile";
 import MobileOnly from "@/components/MobileOnly";
+import styled from "styled-components";
 
 const youtubeLectures = [
   {
@@ -8,20 +9,29 @@ const youtubeLectures = [
   }
 ]
 
+const LectureWrapper = styled.div`
+    background: rgba(38, 45, 103, 0.21);
+    
+    iframe {
+        border-radius: 3px;
+        width: 100%;
+    }
+`
+
 export default function LecturesPage() {
   const isMobile = useIsMobile();
   const lectures = youtubeLectures.map((lecture, index) => {
     return (
-      <div className="bg-gray-800 p-6 rounded-md" key={index}>
+      <LectureWrapper className="p-6 rounded-md" key={index}>
         <div className="mb-4">{lecture.title}</div>
         <iframe
-          width={isMobile ? 320 : 650} height={isMobile ? 200 : 450} src={lecture.link}
+           height={isMobile ? 200 : 450} src={lecture.link}
           title="YouTube video player" frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         />
-      </div>
+      </LectureWrapper>
     )
   })
 
