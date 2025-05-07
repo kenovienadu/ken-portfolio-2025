@@ -69,7 +69,9 @@ export default function NavTabs() {
   if (isMobile) {
     return (
       <section className="flex justify-between align-items-center">
-        <div className="text-center text-sm font-black">Ken Ovienadu</div>
+        <div className="text-center text-sm font-black">
+          <Link href="/">Ken Ovienadu</Link>
+        </div>
         <div className="flex gap-2 justify-between align-items-center mb-10" >
           {renderMobileNavTabs()}
         </div>

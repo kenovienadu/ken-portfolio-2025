@@ -1,4 +1,5 @@
 import useIsMobile from "@/hooks/useIsMobile";
+import MobileOnly from "@/components/MobileOnly";
 
 const youtubeLectures = [
   {
@@ -26,6 +27,10 @@ export default function LecturesPage() {
 
   return (
     <section>
+      <MobileOnly>
+        <div className="mb-8 text-2xl font-bold">Lectures</div>
+      </MobileOnly>
+
       {lectures}
     </section>
   )
